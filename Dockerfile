@@ -1,6 +1,9 @@
 FROM python:2.7
 MAINTAINER binux <roy@binux.me>
 
+ARG configparam="-c /opt/pyspider/config.json"
+ENV configparam $configparam
+
 # install phantomjs
 RUN mkdir -p /opt/phantomjs \
         && cd /opt/phantomjs \
@@ -23,6 +26,6 @@ WORKDIR /opt/pyspider
 RUN pip install -e .[all]
 
 VOLUME ["/opt/pyspider"]
-ENTRYPOINT ["pyspider"]
+CMD pyspider $configparam
 
 EXPOSE 5000 23333 24444 25555
