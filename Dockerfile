@@ -1,7 +1,8 @@
 FROM python:2.7
 MAINTAINER binux <roy@binux.me>
 
-ARG configparam="-c /opt/pyspider/config.json"
+ARG configparam=""
+#-c config.json
 ENV configparam $configparam
 
 # install phantomjs
