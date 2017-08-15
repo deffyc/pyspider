@@ -27,6 +27,6 @@ WORKDIR /opt/pyspider
 RUN pip install -e .[all]
 
 VOLUME ["/opt/pyspider"]
-CMD pyspider $configparam
+CMD pyspider
 
 EXPOSE 5000 23333 24444 25555
