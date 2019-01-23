@@ -12,6 +12,12 @@ RUN mkdir -p /opt/phantomjs \
         && tar xavf phantomjs.tar.bz2 --strip-components 1 \
         && ln -s /opt/phantomjs/bin/phantomjs /usr/local/bin/phantomjs \
         && rm phantomjs.tar.bz2
+RUN set -x \ 
+    && add-apt-repository ppa:mc3man/trusty-media \ 
+    && apt-get update \ 
+    && apt-get dist-upgrade \ 
+    && apt-get install -y --no-install-recommends \ 
+     ffmpeg \ 
 
 
 # install requirements
