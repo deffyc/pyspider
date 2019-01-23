@@ -12,13 +12,13 @@ RUN mkdir -p /opt/phantomjs \
         && tar xavf phantomjs.tar.bz2 --strip-components 1 \
         && ln -s /opt/phantomjs/bin/phantomjs /usr/local/bin/phantomjs \
         && rm phantomjs.tar.bz2
-RUN set -x \ 
+RUN apt-get update && apt-get install -y software-properties-common \
     && add-apt-repository ppa:mc3man/trusty-media \ 
-    && apt-get update \ 
-    && apt-get dist-upgrade \ 
-    && apt-get install -y --no-install-recommends \ 
-     ffmpeg \ 
-
+    && apt-get update && apt-get install -y ffmpeg \ 
+    && mkdir /data \ 
+    && adduser --disabled-password --gecos "" ffmpeg
+    
+USER ffmpeg
 
 # install requirements
 RUN pip install --egg 'https://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.5.zip#md5=ce4a24cb1746c1c8f6189a97087f21c1'
