@@ -14,7 +14,7 @@ RUN mkdir -p /opt/phantomjs \
         && rm phantomjs.tar.bz2
 RUN apt-get update && apt-get install -y software-properties-common \
     && add-apt-repository ppa:mc3man/trusty-media \ 
-    && apt-get update && apt-get install -y ffmpeg \ 
+    && apt-get upgrade && apt-get install -y ffmpeg \ 
     && mkdir /data \ 
     && adduser --disabled-password --gecos "" ffmpeg
     
