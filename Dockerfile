@@ -14,7 +14,7 @@ RUN git clone --depth 1 https://github.com/l-smash/l-smash \
     && git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git \
     && git clone --depth 1 https://chromium.googlesource.com/webm/libvpx \
     && git clone --depth 1 git://git.opus-codec.org/opus.git \
-    && git clone --depth 1 https://github.com/mulx/aacgain.git 
+    && git clone --depth 1 https://github.com/mecke/aacgain.git
                   
 
 
