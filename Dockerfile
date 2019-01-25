@@ -16,7 +16,7 @@ RUN mkdir -p /opt/phantomjs \
         
 WORKDIR /tmp/ffmpeg
 
-RUN apt-get update && apk-get upgrade && apt-get -y install build-base curl nasm tar bzip2 \
+RUN apt-get update && apt-get upgrade && apt-get -y install build-base curl nasm tar bzip2 \
   zlib-dev openssl-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev && \
 
   DIR=$(mktemp -d) && cd ${DIR} && \
