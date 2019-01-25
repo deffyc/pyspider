@@ -23,4 +23,3 @@ kombu
 psycopg2
 elasticsearch
 tblib
-librosa
