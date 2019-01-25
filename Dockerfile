@@ -21,18 +21,21 @@ RUN git clone --depth 1 https://github.com/l-smash/l-smash \
 # Build L-SMASH
 # =================================
 WORKDIR /usr/local/src/l-smash
-RUN ./configure \
-    && make -j ${NUM_CORES} \
-    && make install
+RUN ./configure 
+
+RUN make -j ${NUM_CORES} 
+
+RUN make install
 # =================================
 
 
 # Build libx264
 # =================================
 WORKDIR /usr/local/src/x264
-RUN ./configure --enable-static \
-    && make -j ${NUM_CORES} \
-    && make install
+RUN ./configure --enable-static 
+RUN make -j ${NUM_CORES} 
+
+RUN make install
 # =================================
 
 
@@ -48,26 +51,29 @@ RUN cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ../../source \
 # =================================
 WORKDIR /usr/local/src/fdk-aac
 RUN autoreconf -fiv \
-    && ./configure --disable-shared \
-    && make -j ${NUM_CORES} \
-    && make install
+    && ./configure --disable-shared 
+RUN make -j ${NUM_CORES} 
+
+RUN make install
 # =================================
 
 # Build libvpx
 # =================================
 WORKDIR /usr/local/src/libvpx
-RUN ./configure --disable-examples \
-    && make -j ${NUM_CORES} \
-    && make install
+RUN ./configure --disable-examples 
+RUN make -j ${NUM_CORES} 
+
+RUN make install
 # =================================
 
 # Build libopus
 # =================================
 WORKDIR /usr/local/src/opus
 RUN ./autogen.sh \
-    && ./configure --disable-shared \
-    && make -j ${NUM_CORES} \
-    && make install
+    && ./configure --disable-shared 
+RUN make -j ${NUM_CORES} 
+
+RUN make install
 # =================================
 
 
