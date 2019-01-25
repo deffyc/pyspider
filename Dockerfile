@@ -10,7 +10,7 @@ WORKDIR /usr/local/src
 RUN git clone --depth 1 https://github.com/l-smash/l-smash \
     && git clone --depth 1 git://git.videolan.org/x264.git \
     && hg clone https://bitbucket.org/multicoreware/x265 \
-    && git clone --depth 1 git://source.ffmpeg.org/ffmpeg \
+    && git clone --depth 1 https://git.videolan.org/git/ffmpeg.git \
     && git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git \
     && git clone --depth 1 https://chromium.googlesource.com/webm/libvpx \
     && git clone --depth 1 git://git.opus-codec.org/opus.git \
