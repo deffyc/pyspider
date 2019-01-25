@@ -16,7 +16,7 @@ RUN mkdir -p /opt/phantomjs \
         
 WORKDIR /tmp/ffmpeg
 
-RUN apk add --update build-base curl nasm tar bzip2 \
+RUN apk-get update && apk-get upgrade && apt-get -y install build-base curl nasm tar bzip2 \
   zlib-dev openssl-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev && \
 
   DIR=$(mktemp -d) && cd ${DIR} && \
@@ -30,7 +30,7 @@ RUN apk add --update build-base curl nasm tar bzip2 \
   make distclean && \
 
   rm -rf ${DIR} && \
-  apk del build-base curl tar bzip2 x264 openssl nasm && rm -rf /var/cache/apk/*
+  #apt-get remove build-base curl tar bzip2 x264 openssl nasm && rm -rf /var/cache/apk/*
 
 # install requirements
 RUN pip install --egg 'https://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.5.zip#md5=ce4a24cb1746c1c8f6189a97087f21c1'
