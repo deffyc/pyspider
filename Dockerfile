@@ -91,7 +91,9 @@ RUN ./configure --extra-libs="-ldl" \
             --enable-libx264 \
             --enable-nonfree \
             --enable-openssl 
+            
 RUN make -j ${NUM_CORES} 
+
 RUN make install
 # =================================
 
