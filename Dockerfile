@@ -17,10 +17,9 @@ RUN mkdir -p /opt/phantomjs \
 WORKDIR /tmp/ffmpeg
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get -y install build-base curl nasm tar bzip2 \
-  zlib-dev openssl-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev && \
+RUN apt-get -y install apt-utils curl nasm tar bzip2 \
+  zlib-dev openssl-dev yasm-dev lame-dev libogg-dev x264-dev libvpx-dev libvorbis-dev x265-dev freetype-dev libass-dev libwebp-dev rtmpdump-dev libtheora-dev opus-dev
   
-
 RUN DIR=$(mktemp -d) && cd ${DIR} && curl -s http://ffmpeg.org/releases/ffmpeg-${FFMPEG_VERSION}.tar.gz | tar zxvf - -C . && \
   cd ffmpeg-${FFMPEG_VERSION} && \
   ./configure \
